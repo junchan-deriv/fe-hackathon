@@ -77,3 +77,14 @@ export declare type coingecko_market_data = coingecko_coin_entry & {
     price_change_percentage_24h_in_currency: coingecko_coin_kv;
   };
 };
+
+/**
+ * [time,val]
+ */
+export declare type coingecko_chart_data = number[][];
+/**
+ * The chart data
+ */
+export declare type coingecko_price_chart_data = {
+  prices: coingecko_chart_data;
+};
