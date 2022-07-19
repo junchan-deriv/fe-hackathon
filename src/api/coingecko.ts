@@ -39,7 +39,10 @@ export function coingecko_get_coin_current_data(
   coin: string
 ): Promise<coingecko_market_data> {
   return fetchJson<coingecko_market_data>(
-    `${baseURL}/coins/${coin}?localization=false&tickers=true&market_data=true&community_data=false&developer_data=false&sparkline=false`
+    `${baseURL}/coins/${coin}?localization=false&tickers=true&market_data=true&community_data=false&developer_data=false&sparkline=false`,
+    {
+      cache: "reload",
+    }
   );
 }
 
