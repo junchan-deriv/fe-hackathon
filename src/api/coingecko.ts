@@ -104,7 +104,7 @@ export class CoingeckoChartDataPoller {
   start() {
     this.load();
     //5mins
-    this.tickId = setInterval(this.load.bind(this), 5000);
+    this.tickId = setInterval(this.load.bind(this), 300000);
   }
   stop() {
     clearInterval(this.tickId as number);
@@ -156,7 +156,6 @@ export class CoingeckoChartDataPoller {
           this.chartData.splice(0, datas.length);
           //add the difference
           this.chartData.push(...datas);
-          console.log(this.chartData, data.prices, datas);
           if (datas.length) {
             //fire the new data
             this.onNewData?.(this, datas);
