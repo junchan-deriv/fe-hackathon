@@ -23,7 +23,7 @@ export default function MarketTable({ coin, vs_currencies }: MarketTableProps) {
   //get the data
   const currentMarketData = useInterval<coingecko_market_data_render>(
     () => coingecko_get_coin_current_data(coin),
-    60000,
+    15000,
     [coin, vs_currencies],
     (updated, old) => {
       if (!updated) {
