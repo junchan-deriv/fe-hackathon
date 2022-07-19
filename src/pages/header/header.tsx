@@ -1,25 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../header.css";
+import "../../scss/header.scss";
 
 function Header() {
-  const path = window.location.pathname;
+  const path = document.location.pathname;
+  console.log("this is nav");
   return (
+    /* Navigation Menu */
     <>
-      console.log("this is nav");
       <nav className="nav">
         <div className="site-title">
-          <img src="tmr download from drive.png" alt="trade-now-logo" />
+          <img
+            className="logo"
+            src="/image/TradeNow.png"
+            alt="trade-now-logo"
+          />
           <h4>TradeNow</h4>
         </div>
-        <ul>
-          <li>
-            <a href="/market">Market</a>
-          </li>
-          <li>
-            <a href="/about">About</a>
-          </li>
-        </ul>
+        <div className="nav-list">
+          <ul>
+            <li>
+              <a href="/home">Home</a>
+            </li>
+            <li>
+              <a href="/market">Market</a>
+            </li>
+            <li>
+              <a href="/about">About</a>
+            </li>
+          </ul>
+        </div>
       </nav>
     </>
   );
