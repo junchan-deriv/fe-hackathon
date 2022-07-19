@@ -1,0 +1,54 @@
+table.market_table {
+  &,
+  th,
+  td {
+    border: 0.5px solid black;
+    border-collapse: collapse;
+    padding: 2px;
+  }
+  thead {
+    background-color: goldenrod;
+  }
+  td {
+    span.higher {
+      color: green;
+    }
+    span.lower {
+      color: red;
+    }
+    &.rising {
+      animation-name: flashGreen;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;
+      animation-play-state: running;
+    }
+    &.losing {
+      animation-name: flashRed;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;
+      animation-play-state: running;
+    }
+  }
+  img.icon {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@keyframes flashGreen {
+  0% {
+    background-color: green;
+  }
+  100% {
+    background: none;
+  }
+}
+
+@keyframes flashRed {
+  0% {
+    background-color: red;
+  }
+  100% {
+    background: none;
+  }
+}
