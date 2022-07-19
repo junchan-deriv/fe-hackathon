@@ -7,13 +7,15 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: #3f7371;
+  background-color: #26413c;
+  width: 100%;
 }
 
 .site-title {
   display: flex;
   align-items: center;
   color: white;
+  font-family: "Inter", sans-serif;
 }
 
 ul {
@@ -27,4 +29,11 @@ ul {
 .nav a {
   text-decoration: none;
   color: white;
+  font-family: "Inter", sans-serif;
+  margin: auto;
+}
+
+.nav a:hover {
+  font-weight: 800;
+  border-bottom: 2px solid coral;
 }
