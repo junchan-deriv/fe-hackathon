@@ -2,12 +2,11 @@ table.market_table {
   &,
   th,
   td {
-    border: 0.5px solid black;
     border-collapse: collapse;
-    padding: 2px;
+    padding: 1rem;
   }
   thead {
-    background-color: goldenrod;
+    background-color: #e9e9e9;
   }
   td {
     span.higher {
@@ -51,4 +50,8 @@ table.market_table {
   100% {
     background: none;
   }
+}
+
+tbody {
+  border-bottom-color: #b7b7b7;
 }
