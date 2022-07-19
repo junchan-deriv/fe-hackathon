@@ -9,7 +9,10 @@ import React from "react";
 export function useInterval<T>(
   dataProvider: () => Promise<T>,
   interval: number,
-  reps: any[] = []
+  reps: any[] = [],
+  update: (newData: T | undefined, prev: T | undefined) => T | undefined = (
+    newData
+  ) => newData
 ): T | undefined {
   const [value, setValue] = React.useState<T | undefined>();
   React.useEffect(() => {
@@ -20,7 +23,9 @@ export function useInterval<T>(
       }
       onProgress = true;
       dataProvider()
-        .then(setValue)
+        .then((data) => {
+          setValue(update.bind(null, data));
+        })
         .finally(() => (onProgress = false));
     };
     exec();

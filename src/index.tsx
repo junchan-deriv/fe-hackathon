@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
-import Main from "./pages/main";
 import Header from "./pages/header/header";
 import About from "./pages/about/about";
 import Market from "./pages/market/market";
