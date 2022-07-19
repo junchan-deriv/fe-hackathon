@@ -1,6 +1,6 @@
 import nav from "./header/header";
 import market from "./market/market";
-import home from "./homepage/homapage";
+import home from "./homepage/homepage";
 
 export default function Main(): JSX.Element {
   // function navPage() {
