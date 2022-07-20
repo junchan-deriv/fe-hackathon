@@ -4,7 +4,7 @@ export const Box = styled.div`
   display: inline-block;
   padding: 60px 60px 10px 60px;
   background: black;
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
   box-sizing: border-box;
