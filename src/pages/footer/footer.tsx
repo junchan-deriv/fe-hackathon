@@ -1,6 +1,5 @@
 import React from "react";
 import "./footer.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Box,
   Container,
@@ -13,8 +12,8 @@ import {
 export default function Footer() {
   return (
     <Box>
-      <h1>Platform to Monitor Your Cryptocurrency</h1>
       <Container>
+        <h1 className="footer">Platform to Monitor Your Cryptocurrency</h1>
         <Row>
           <Column>
             <Heading>About Us</Heading>

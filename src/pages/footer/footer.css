@@ -1,9 +1,10 @@
 /*Using FooterStyles for styling the box, container, row, column, footerlink, heading
 */
 
-h1 {
+h1.footer {
   color: green;
   text-align: center;
   margin-top: -50px;
   background-color: black;
+  width: 100%;
 }
