@@ -25,17 +25,15 @@ const root = ReactDOM.createRoot(
 //     break;
 // }
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<PageTemplate />}>
-          <Route path="" element={<Home />} />
-          <Route path="market" element={<Market />} />
-          <Route path="about" element={<About />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  </React.StrictMode>
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<PageTemplate />}>
+        <Route path="" element={<Home />} />
+        <Route path="market" element={<Market />} />
+        <Route path="about" element={<About />} />
+      </Route>
+    </Routes>
+  </BrowserRouter>
 );
 
 function PageTemplate(): JSX.Element {
