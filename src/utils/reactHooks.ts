@@ -31,6 +31,7 @@ export function useInterval<T>(
     exec();
     const id = setInterval(exec, interval);
     return () => clearInterval(id);
-  }, [setValue, ...reps]);
+    //
+  }, [setValue, dataProvider, interval, update, ...reps]); // eslint-disable-line react-hooks/exhaustive-deps
   return value;
 }
