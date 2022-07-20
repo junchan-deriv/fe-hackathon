@@ -35,3 +35,20 @@ export function useInterval<T>(
   }, [setValue, ...reps]); // eslint-disable-line react-hooks/exhaustive-deps
   return value;
 }
+
+/**
+ * Hooks that load the data
+ * @param dataProvider function which return promise which resolves to the needed data
+ * @param reps dependencies on the load function
+ * @returns current data or NULL is it is not loaded
+ */
+export function useLoader<T>(
+  dataProvider: () => Promise<T>,
+  reps: any[] = []
+): T | undefined {
+  const [value, setValue] = React.useState<T | undefined>();
+  React.useEffect(() => {
+    dataProvider().then(setValue);
+  }, [setValue, ...reps]); // eslint-disable-line react-hooks/exhaustive-deps
+  return value;
+}

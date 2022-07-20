@@ -43,9 +43,11 @@ export default function MarketTable({ coin, vs_currencies }: MarketTableProps) {
         //if the old data here perform the diff here
         currencies.forEach((k) => {
           updated.diff = updated.diff ?? {};
-          updated.diff[k] =
-            updated.market_data.current_price[k] -
-            old.market_data.current_price[k];
+          let lhs = updated.market_data.current_price[k],
+            rhs = old.market_data.current_price[k];
+          if ("number" === typeof rhs && typeof lhs === "number") {
+            updated.diff[k] = lhs - rhs;
+          }
         });
       }
       return updated;
@@ -80,7 +82,9 @@ export default function MarketTable({ coin, vs_currencies }: MarketTableProps) {
                     coin={coin}
                     icon={currentMarketData.image.small}
                     vs={cur}
-                    price={currentMarketData.market_data.current_price[cur]}
+                    price={
+                      currentMarketData.market_data.current_price[cur] as number
+                    }
                     diff={(currentMarketData?.diff ?? {})[cur]}
                     changes={
                       currentMarketData.market_data
@@ -100,7 +104,7 @@ type TableRowProp = {
   icon: string;
   vs: string;
   price: number;
-  changes: number;
+  changes?: number;
   diff?: number;
 };
 
@@ -133,8 +137,8 @@ export function TableRow({
         className={decideColor()}
         onAnimationEnd={(e) => e.currentTarget.setAttribute("class", "")}
       >
-        <span className={changes === 0 ? "" : changes > 0 ? "higher" : "lower"}>
-          {changes.toFixed(2)}%
+        <span className={!changes ? "" : changes > 0 ? "higher" : "lower"}>
+          {changes ? changes.toFixed(2) + "%" : "unknown"}
         </span>
       </td>
     </tr>

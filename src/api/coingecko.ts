@@ -22,12 +22,21 @@ export function coingecko_get_supported_vs_currencies(): Promise<coingecko_vs_cu
   );
 }
 
+const knownList = ["doge"];
 /**
  * Query the list of supported currencies
  * @returns list of the supported currencies
  */
-export function coingecko_get_supported_coins(): Promise<coingecko_coin_entries> {
-  return fetchJson<coingecko_coin_entries>(`${baseURL}/coins/list`);
+export async function coingecko_get_supported_coins(): Promise<coingecko_coin_entries> {
+  let data = await fetchJson<coingecko_coin_entries>(
+    `${baseURL}/coins/list?include_platfrom=false`
+  );
+  let vs = await coingecko_get_supported_vs_currencies();
+  data = data.filter(
+    (z) => vs.includes(z.symbol) || knownList.includes(z.symbol)
+  );
+  data.sort((a, b) => a.symbol.localeCompare(b.symbol));
+  return data;
 }
 
 /**
