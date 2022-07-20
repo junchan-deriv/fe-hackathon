@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
 export const Box = styled.div`
+  display: inline-block;
   padding: 60px 60px 10px 60px;
   background: black;
   position: absolute;
   bottom: 0;
   width: 100%;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 
   @media (max-width: 1000px) {
     padding: 60px 10px 10px 10px;
@@ -18,7 +21,6 @@ export const Container = styled.div`
   justify-content: center;
   max-width: 1000px;
   margin: 0 auto;
-  /* background: red; */
 `;
 
 export const Column = styled.div`

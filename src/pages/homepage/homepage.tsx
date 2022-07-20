@@ -34,7 +34,9 @@ export default function Home() {
           <img className="crypto" src={foto} alt="" />
         </div>
       </div>
-      <Footer />
+      <div>
+        <Footer />
+      </div>
     </>
   );
 }

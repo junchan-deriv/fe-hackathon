@@ -1,9 +1,12 @@
 .flex-container {
   display: flex;
+  position: relative;
   width: 100%;
+  margin-bottom: 0;
 }
 
 .left-side-wordings {
+  box-sizing: border-box;
   color: black;
   margin: 50px;
   padding: 50px;
@@ -31,8 +34,7 @@ a.button-68 {
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: Inter, -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
-    sans-serif;
+  font-family: Inter, sans-serif;
   font-size: 16px;
   font-weight: 600;
   letter-spacing: normal;
@@ -77,39 +79,26 @@ p.homepage-description {
   margin-bottom: 0;
 }
 
+div.right-side-image {
+  box-sizing: padding-box;
+  height: 100%;
+}
+
 img.traders {
-  transform: scale(0.4);
-  justify-content: flex-start;
-  margin-left: 323px;
-  margin-top: -350px;
-  align-items: center;
-  flex-direction: column;
-  align-items: flex-end;
-  display: inline;
-  z-index: -100;
+  position: absolute;
+  transform: scale(0.45);
+  top: -350px;
+  left: 900px;
+  /* justify-content: flex-start; */
+  /* margin-top: -330px; */
+  z-index: 5;
 }
 
 img.crypto {
-  transform: scale(0.7);
-  margin-left: 750px;
-  margin-top: -1000px;
-  align-items: center;
-  flex-direction: column;
-  align-items: flex-end;
-  position: relative;
+  transform: scale(0.6);
+  position: absolute;
+  top: 100px;
+  left: 1300px;
   display: inline;
   z-index: 10;
-  top: -400px;
-  left: -20px;
-}
-
-div.right-side-image {
-  margin-left: auto;
-  order: 2;
-  margin-right: auto;
-}
-
-body {
-  width: 100%;
-  height: 100%;
 }
