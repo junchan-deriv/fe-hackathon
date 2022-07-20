@@ -6,6 +6,7 @@ import Header from "./pages/header/header";
 import About from "./pages/about/about";
 import Market from "./pages/market/market";
 import Home from "./pages/homepage/homepage";
+import Footer from "./pages/footer/footer";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -39,9 +40,8 @@ function PageTemplate(): JSX.Element {
   return (
     <>
       <Header />
-      <div className="container">
-        <Outlet />
-      </div>
+      <Outlet />
+      <Footer />
     </>
   );
 }

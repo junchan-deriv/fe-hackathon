@@ -21,7 +21,7 @@
 }
 
 .nav-list {
-  padding-right: 1350px;
+  padding-right: 1300px;
 }
 
 ul {
@@ -38,10 +38,11 @@ ul {
   font-family: "Inter", sans-serif;
   // margin: auto;
   border-bottom: 2px solid transparent;
+  font-weight: bold;
 }
 
 .nav ul li a:hover {
-  font-weight: 800;
+  // font-weight: bold;
   border-bottom: 2px solid coral;
   text-align: center;
 }

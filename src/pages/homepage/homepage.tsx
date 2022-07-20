@@ -8,7 +8,6 @@ import foto from "./Assets/Crypto.png";
 export default function Home() {
   return (
     <>
-      <Header />
       <div className="flex-container">
         <div className="left-side-wordings">
           <p className="homepage">
@@ -33,9 +32,6 @@ export default function Home() {
           <img className="traders" src={pic} alt="" />
           <img className="crypto" src={foto} alt="" />
         </div>
-      </div>
-      <div>
-        <Footer />
       </div>
     </>
   );

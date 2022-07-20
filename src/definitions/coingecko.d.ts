@@ -10,7 +10,7 @@ export declare type coingecko_current_price = any;
  * o[k]=v where k is coin name
  */
 export declare type coingecko_coin_kv = {
-  [key: string]: number;
+  [key: string]: number | undefined;
 };
 
 export declare type coingecko_coin_entry = {
