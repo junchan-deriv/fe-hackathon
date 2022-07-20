@@ -57,7 +57,10 @@ export function coingecko_get_chart_data(
   vs: string
 ): Promise<coingecko_price_chart_data> {
   return fetchJson<coingecko_price_chart_data>(
-    `${baseURL}/coins/${coin}/market_chart?vs_currency=${vs}&days=1`
+    `${baseURL}/coins/${coin}/market_chart?vs_currency=${vs}&days=1`,
+    {
+      cache: "reload",
+    }
   );
 }
 
@@ -106,8 +109,8 @@ export class CoingeckoChartDataPoller {
    */
   start() {
     this.load();
-    //5mins
-    this.tickId = setInterval(this.load.bind(this), 300000);
+    //30sec
+    this.tickId = setInterval(this.load.bind(this), 30000);
   }
   stop() {
     clearInterval(this.tickId as number);
@@ -132,20 +135,17 @@ export class CoingeckoChartDataPoller {
         //the data is there, just we got new part
         //first get the first index where the data should be merged
         let i: number = data.prices.length - 1;
-        let failed: boolean = false;
         for (; i >= 0; i--) {
           //get the entry
           let rhs = data.prices[i];
           let lhs = this.chartData[this.chartData.length - 1];
-          if (lhs[0] === rhs[0]) {
+          if (Math.abs(lhs[0] - rhs[0]) < 100) {
             break; //we got the point
           } else if (rhs[0] < lhs[0]) {
-            console.warn("Out of sync detected");
-            failed = true;
             break;
           }
         }
-        if (failed || i < 0) {
+        if (i < 0) {
           //the stuffs is broken lets reset
           const baseIndex = Math.max(0, data.prices.length - 100);
           this.chartData = data.prices.slice(baseIndex, baseIndex + 100);
@@ -159,13 +159,14 @@ export class CoingeckoChartDataPoller {
           this.chartData.splice(0, datas.length);
           //add the difference
           this.chartData.push(...datas);
-          if (datas.length) {
+          if (datas.length > 0) {
             //fire the new data
             this.onNewData?.(this, datas);
           }
         }
       }
     } catch (e) {
+      console.error(e);
       this.onError?.(e);
     } finally {
       this.processing = false;

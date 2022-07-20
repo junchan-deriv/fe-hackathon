@@ -1,5 +1,8 @@
 import React from "react";
-import { coingecko_get_coin_current_data } from "../api/coingecko";
+import {
+  CoingeckoChartDataPoller,
+  coingecko_get_coin_current_data,
+} from "../api/coingecko";
 import {
   coingecko_coin_kv,
   coingecko_market_data,
@@ -23,7 +26,7 @@ export default function MarketTable({ coin, vs_currencies }: MarketTableProps) {
   //get the data
   const currentMarketData = useInterval<coingecko_market_data_render>(
     () => coingecko_get_coin_current_data(coin),
-    15000,
+    30000,
     [coin, vs_currencies],
     (updated, old) => {
       if (!updated) {
