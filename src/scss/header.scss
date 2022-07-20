@@ -45,3 +45,7 @@ ul {
   border-bottom: 2px solid coral;
   text-align: center;
 }
+
+.nav li :active {
+  background-color: #5ca8a5;
+}
