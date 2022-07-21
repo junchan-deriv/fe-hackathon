@@ -27,7 +27,7 @@ export default function DropDownList<ElementType>({
               <option
                 key={"key-" + i}
                 value={v as unknown as string}
-                defaultChecked={value === (v as any)}
+                selected={value === (v as any)}
               >
                 {v as unknown as string}
               </option>
