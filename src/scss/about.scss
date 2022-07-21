@@ -1,0 +1,101 @@
+html {
+  width: 100vw;
+}
+body {
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+}
+
+.trade-now-main {
+  position: relative;
+  width: 50%;
+  font-weight: bolder;
+  font-size: 2rem;
+  left: 200px;
+  top: 380px;
+
+  .h1-low-opacity {
+    position: absolute;
+    left: 350px;
+    top: -200px;
+    opacity: 0.1;
+    font-size: 9rem;
+    z-index: -10;
+    writing-mode: vertical-rl;
+  }
+}
+
+.trade-now-logo {
+  position: absolute;
+  transform: scale(0.5);
+  top: -500px;
+  left: 800px;
+  animation: blurin 1.5s ease-in-out 1;
+}
+
+.p-about-us {
+  font-weight: 200;
+  opacity: 0.5;
+}
+
+div.trade-now-history {
+  display: block;
+  position: relative;
+  margin-top: 700px;
+  left: 18%;
+  width: 65%;
+  font-weight: 200;
+  font-family: "Inter", sans-serif;
+}
+
+p.trade-now-history {
+  font-size: 1em;
+  text-align: center;
+  border-top: groove;
+  margin-top: 700px;
+  margin: auto;
+  width: 100%;
+}
+
+@keyframes blurin {
+  0% {
+    filter: blur(10px);
+  }
+
+  100% {
+    filter: blur(0px);
+  }
+}
+
+.team-Trade-Now {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 80px 0 20px 0;
+  font-weight: 800;
+
+  h2 {
+    font-size: 2em;
+  }
+}
+
+.team-picture {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 20px 0 60px 0;
+  font-weight: 800;
+  box-shadow: 3px 4px 8px 8px #0b7001;
+  img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  h3 {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    border-radius: 5px 20px 5px;
+    background: #0b7001;
+  }
+}
