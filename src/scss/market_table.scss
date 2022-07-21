@@ -3,7 +3,7 @@ table.market_table {
   th,
   td {
     border-collapse: collapse;
-    border-bottom: #b0b0b0 2px solid;
+    border-bottom: #b0b0b0 1px solid;
     padding: 1.5rem;
     font-size: 20px;
     text-align: center;
@@ -56,15 +56,11 @@ table.market_table {
   }
 }
 
-table.market_table tbody tr {
-  border-bottom-color: #b7b7b7;
-}
-
 .pagination {
   justify-content: center;
   display: flex;
   align-items: center;
-  margin: 10px 0px 20px 0px;
+  margin: 20px 0px 20px 0px;
 }
 
 .pageNo {
