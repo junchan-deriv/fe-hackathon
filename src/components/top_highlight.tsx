@@ -15,7 +15,7 @@ export default function TopHighlight() {
       setLoading(true);
       const result = await coinGecko.get("/coins/markets/", {
         params: {
-          vs_currency: "usd",
+          vs_currency: "myr",
           ids: coinList.join(","),
         },
       });

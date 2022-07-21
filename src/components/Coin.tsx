@@ -13,8 +13,8 @@ const Coin = ({ coin }: any) => {
     >
       <div className="coinList-item">
         <img src={coin.image} alt="" className="coinListImg" />
-        <span className="coin-symbol">{coin.symbol}</span>
-        <span className="coin-price">$ &nbsp;{coin.current_price}</span>
+        <span className="coin-symbol">{coin.symbol.toUpperCase()}</span>
+        <span className="coin-price">RM &nbsp;{coin.current_price}</span>
       </div>
     </Link>
   );
