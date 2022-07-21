@@ -1,7 +1,13 @@
 import React from "react";
 
 type DropDownListProps<ElementType> = {
+  /**
+   * List to show
+   */
   list: ElementType[];
+  /**
+   * Optional function to convert the stuffs to the html
+   */
   converter?: (v: ElementType) => React.ReactElement<HTMLOptionElement>;
   onChange?: (e: React.FormEvent<HTMLSelectElement>) => void;
   value?: string;
@@ -21,7 +27,7 @@ export default function DropDownList<ElementType>({
               <option
                 key={"key-" + i}
                 value={v as unknown as string}
-                defaultChecked={value === (v as any)}
+                selected={value === (v as any)}
               >
                 {v as unknown as string}
               </option>
