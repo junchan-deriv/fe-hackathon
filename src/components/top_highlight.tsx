@@ -3,7 +3,6 @@ import coinGecko from "../api/coinGecko";
 import Coin from "./Coin";
 import { CoinListContext } from "./coinList";
 import "../scss/market.scss";
-import { Link } from "react-router-dom";
 
 export default function TopHighlight() {
   const [coin, setCoin] = useState<any>([]);
@@ -47,11 +46,6 @@ export default function TopHighlight() {
       <h1 className="title">Highlight Coin</h1>
       <div className="description">
         <div className="card">{renderCoin()}</div>
-      </div>
-      <div className="chart">
-        <Link to="/chart">
-          <button>View Chart</button>
-        </Link>
       </div>
     </div>
   );

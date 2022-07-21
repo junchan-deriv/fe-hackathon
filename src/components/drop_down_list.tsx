@@ -1,4 +1,5 @@
 import React from "react";
+import "../scss/drop-down-list.scss";
 
 type DropDownListProps<ElementType> = {
   /**
@@ -19,16 +20,12 @@ export default function DropDownList<ElementType>({
   value,
 }: DropDownListProps<ElementType>) {
   return (
-    <select onChange={onChange}>
+    <select onChange={onChange} value={value}>
       {list.map(
         converter ??
           ((v, i) => {
             return (
-              <option
-                key={"key-" + i}
-                value={v as unknown as string}
-                selected={value === (v as any)}
-              >
+              <option key={"key-" + i} value={v as unknown as string}>
                 {v as unknown as string}
               </option>
             );
