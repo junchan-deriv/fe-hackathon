@@ -54,7 +54,7 @@ export default function ChartComponent({
     const tmpData: number[] = [],
       tmpLabel: string[] = [];
     //generate 2 arrays
-    const array_length = chartData.length - 20;
+    const array_length = chartData.length - 40;
     chartData.slice(array_length).forEach((entry) => {
       //time
       const time = new Date(entry[0]);
@@ -68,13 +68,6 @@ export default function ChartComponent({
   }
 
   React.useEffect(() => {
-    //load the data from the sources
-    if (source.chartData.length === 0) {
-      source.onLoad = initData;
-    } else {
-      //init
-      initData();
-    }
     //attach the new data
     source.onNewData = function (_self, newSeg) {
       if (!labels || !datas) {
@@ -95,6 +88,16 @@ export default function ChartComponent({
       setLabels(labels.slice(newSeg.length));
       setDatas(datas.slice(newSeg.length));
     };
+  }, [labels, datas, source]);
+
+  React.useEffect(() => {
+    //load the data from the sources
+    if (source.chartData.length === 0) {
+      source.onLoad = initData;
+    } else {
+      //init
+      initData();
+    }
     //then the A**hole listeners
     return () => {
       source.onLoad = undefined;

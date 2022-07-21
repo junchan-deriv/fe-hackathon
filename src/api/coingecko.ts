@@ -118,8 +118,8 @@ export class CoingeckoChartDataPoller {
    */
   start() {
     this.load();
-    //30sec
-    this.tickId = setInterval(this.load.bind(this), 30000);
+    //15sec
+    this.tickId = setInterval(this.load.bind(this), 15000);
   }
   stop() {
     clearInterval(this.tickId as number);
@@ -148,9 +148,7 @@ export class CoingeckoChartDataPoller {
           //get the entry
           let rhs = data.prices[i];
           let lhs = this.chartData[this.chartData.length - 1];
-          if (Math.abs(lhs[0] - rhs[0]) < 100) {
-            break; //we got the point
-          } else if (rhs[0] < lhs[0]) {
+          if (rhs[0] <= lhs[0]) {
             break;
           }
         }
