@@ -1,7 +1,13 @@
 import React from "react";
 
 type DropDownListProps<ElementType> = {
+  /**
+   * List to show
+   */
   list: ElementType[];
+  /**
+   * Optional function to convert the stuffs to the html
+   */
   converter?: (v: ElementType) => React.ReactElement<HTMLOptionElement>;
   onChange?: (e: React.FormEvent<HTMLSelectElement>) => void;
   value?: string;
