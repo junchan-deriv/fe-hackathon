@@ -1,4 +1,4 @@
-html {
+/* html {
   width: 100vw;
 }
 div.body {
@@ -74,3 +74,10 @@ p.trade-now-history {
   margin: 100px 0;
   font-weight: 800;
 }
+
+img.team-picture {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  z-index: 6;
+} */
