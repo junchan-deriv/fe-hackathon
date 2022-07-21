@@ -20,7 +20,7 @@ export default function TopHighlight() {
           ids: coinList.join(","),
         },
       });
-      console.log(result.data);
+      // console.log(result.data);
       setCoin(result.data);
       setLoading(false);
     };
