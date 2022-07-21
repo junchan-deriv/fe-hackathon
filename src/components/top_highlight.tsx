@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import coinGecko from "../api/coinGecko";
 import Coin from "./Coin";
 import { CoinListContext } from "./coinList";
-import "../../scss/market.scss";
+// import "../../scss/market.scss";
 
 export default function TopHighlight() {
   const [coin, setCoin] = useState<any>([]);
@@ -19,7 +19,7 @@ export default function TopHighlight() {
           ids: coinList.join(","),
         },
       });
-      console.log(result.data);
+      // console.log(result.data);
       setCoin(result.data);
       setLoading(false);
     };
