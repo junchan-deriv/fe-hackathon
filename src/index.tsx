@@ -7,7 +7,6 @@ import About from "./pages/about/about";
 import Market from "./pages/market/market";
 import Home from "./pages/homepage/homepage";
 import Footer from "./pages/footer/footer";
-import CoinDetailPage from "./pages/chart/Coin Detail Page";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -32,7 +31,6 @@ root.render(
         <Route path="" element={<Home />} />
         <Route path="market" element={<Market />} />
         <Route path="about" element={<About />} />
-        <Route path="chart/:id" element={<CoinDetailPage />} />
       </Route>
     </Routes>
   </BrowserRouter>
