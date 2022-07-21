@@ -50,7 +50,7 @@ export function coingecko_get_coin_current_data(
   return fetchJson<coingecko_market_data>(
     `${baseURL}/coins/${coin}?localization=false&tickers=true&market_data=true&community_data=false&developer_data=false&sparkline=false`,
     {
-      cache: "reload",
+      cache: "no-store",
     }
   );
 }
@@ -68,7 +68,7 @@ export function coingecko_get_chart_data(
   return fetchJson<coingecko_price_chart_data>(
     `${baseURL}/coins/${coin}/market_chart?vs_currency=${vs}&days=1`,
     {
-      cache: "reload",
+      cache: "no-store",
     }
   );
 }
