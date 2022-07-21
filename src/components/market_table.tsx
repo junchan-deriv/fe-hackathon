@@ -23,6 +23,8 @@ type coingecko_market_data_render = coingecko_market_data & {
  * Component to show the table of the prices
  */
 export default function MarketTable({ coin, vs_currencies }: MarketTableProps) {
+  //page number
+  const [page, setPage] = React.useState<number>(1);
   //get the data
   const currentMarketData = useInterval<coingecko_market_data_render>(
     () => coingecko_get_coin_current_data(coin),
@@ -59,6 +61,9 @@ export default function MarketTable({ coin, vs_currencies }: MarketTableProps) {
     (currentMarketData
       ? Object.keys(currentMarketData.market_data.current_price)
       : undefined);
+  // declare the start and end of table row range
+  const startRange = (page - 1) * 10;
+  const endRange = startRange + 10;
   return !currentMarketData ? (
     <>Loading</>
   ) : (
@@ -74,27 +79,54 @@ export default function MarketTable({ coin, vs_currencies }: MarketTableProps) {
         </thead>
         <tbody>
           {vs_currencies &&
-            vs_currencies.map(
-              (cur) =>
-                cur !== currentMarketData.symbol && (
-                  <TableRow
-                    key={cur}
-                    coin={coin}
-                    icon={currentMarketData.image.small}
-                    vs={cur}
-                    price={
-                      currentMarketData.market_data.current_price[cur] as number
-                    }
-                    diff={(currentMarketData?.diff ?? {})[cur]}
-                    changes={
-                      currentMarketData.market_data
-                        .price_change_percentage_24h_in_currency[cur]
-                    }
-                  />
-                )
-            )}
+            vs_currencies
+              .slice(startRange, endRange) //slice the table
+              .map(
+                (cur) =>
+                  cur !== currentMarketData.symbol && (
+                    <TableRow
+                      key={cur}
+                      coin={coin}
+                      icon={currentMarketData.image.small}
+                      vs={cur}
+                      price={
+                        currentMarketData.market_data.current_price[
+                          cur
+                        ] as number
+                      }
+                      diff={(currentMarketData?.diff ?? {})[cur]}
+                      changes={
+                        currentMarketData.market_data
+                          .price_change_percentage_24h_in_currency[cur]
+                      }
+                    />
+                  )
+              )}
         </tbody>
       </table>
+      {/* page button */}
+      <div className="pagination">
+        <button
+          className="back-btn"
+          disabled={1 === page} // if the page is 1, button disable
+          onClick={() => {
+            setPage(page - 1); // if button clicked, page num decreased
+          }}
+        >
+          Back
+        </button>
+        {/* display current page number */}
+        <span className="pageNo">{page}</span>
+        <button
+          className="next-btn"
+          disabled={vs_currencies && page * 10 >= vs_currencies?.length} // if the array length is 0, next button disable
+          onClick={() => {
+            setPage(page + 1); // if button clicked, page num increased
+          }}
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 }
@@ -126,21 +158,23 @@ export function TableRow({
     }
   };
   return (
-    <tr>
-      <td>
-        <img className="icon" alt={coin} src={icon} />
-        {coin}
-      </td>
-      <td>{vs}</td>
-      <td>{price}</td>
-      <td
-        className={decideColor()}
-        onAnimationEnd={(e) => e.currentTarget.setAttribute("class", "")}
-      >
-        <span className={!changes ? "" : changes > 0 ? "higher" : "lower"}>
-          {changes ? changes.toFixed(2) + "%" : "unknown"}
-        </span>
-      </td>
-    </tr>
+    <>
+      <tr>
+        <td>
+          <img className="icon" alt={coin} src={icon} />
+          {coin}
+        </td>
+        <td>{vs}</td>
+        <td>{price}</td>
+        <td
+          className={decideColor()}
+          onAnimationEnd={(e) => e.currentTarget.setAttribute("class", "")}
+        >
+          <span className={!changes ? "" : changes > 0 ? "higher" : "lower"}>
+            {changes ? changes.toFixed(2) + "%" : "unknown"}
+          </span>
+        </td>
+      </tr>
+    </>
   );
 }
