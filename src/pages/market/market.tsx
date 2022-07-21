@@ -1,10 +1,12 @@
 import React from "react";
+import { CoinListContext } from "../../components/coinList";
 import DropDownList from "../../components/drop_down_list";
 import MarketTable from "../../components/market_table";
 import TopHighlight from "../../components/top_highlight";
 import "../../scss/market.scss";
 
 export default function Market() {
+  const [crypto, setCrypto] = React.useState<string>("bitcoin");
   return (
     <>
       <div className="container">
@@ -19,10 +21,14 @@ export default function Market() {
           </div>
         </div>
 
-        <DropDownList list={["bitcoin", "ethereum", "litecoin", "dogecoin"]} />
+        <DropDownList
+          list={React.useContext(CoinListContext)}
+          value={crypto}
+          onChange={(e) => setCrypto(e.currentTarget.value)}
+        />
         {/* here is the crypto data shown in table form */}
         <div className="table-container">
-          <MarketTable coin="bitcoin" />
+          <MarketTable coin={crypto} />
         </div>
       </div>
     </>

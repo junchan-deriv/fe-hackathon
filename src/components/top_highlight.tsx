@@ -3,7 +3,6 @@ import coinGecko from "../api/coinGecko";
 import Coin from "./Coin";
 import { CoinListContext } from "./coinList";
 import "../scss/market.scss";
-import { Link } from "react-router-dom";
 
 export default function TopHighlight() {
   const [coin, setCoin] = useState<any>([]);
