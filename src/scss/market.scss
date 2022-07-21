@@ -52,3 +52,17 @@
   font-size: 20px;
   font-weight: bold;
 }
+
+.coin-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  div {
+    margin: 0 0.2rem;
+  }
+}
+
+.select-drop-down {
+  text-align: center;
+}

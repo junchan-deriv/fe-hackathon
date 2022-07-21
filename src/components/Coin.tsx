@@ -11,11 +11,11 @@ const Coin = ({ coin }: any) => {
         color: "black",
       }}
     >
-      <li className="coinList-item">
+      <div className="coinList-item">
         <img src={coin.image} alt="" className="coinListImg" />
         <span className="coin-symbol">{coin.symbol}</span>
         <span className="coin-price">$ &nbsp;{coin.current_price}</span>
-      </li>
+      </div>
     </Link>
   );
 };

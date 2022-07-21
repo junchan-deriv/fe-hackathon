@@ -33,11 +33,11 @@ export default function TopHighlight() {
     }
 
     return (
-      <ul className="coin-list">
+      <div className="coin-list">
         {coin.map((coin: any) => {
           return <Coin key={coin.id} coin={coin} />;
         })}
-      </ul>
+      </div>
     );
   };
 

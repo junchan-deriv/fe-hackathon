@@ -20,15 +20,18 @@ export default function Market() {
             </div>
           </div>
         </div>
-
-        <DropDownList
-          list={React.useContext(CoinListContext)}
-          value={crypto}
-          onChange={(e) => setCrypto(e.currentTarget.value)}
-        />
         {/* here is the crypto data shown in table form */}
         <div className="table-container">
-          <MarketTable coin={crypto} />
+          <div>
+            <div className="select-drop-down">
+              <DropDownList
+                list={React.useContext(CoinListContext)}
+                value={crypto}
+                onChange={(e) => setCrypto(e.currentTarget.value)}
+              />
+            </div>
+            <MarketTable coin={crypto} />
+          </div>
         </div>
       </div>
     </>
