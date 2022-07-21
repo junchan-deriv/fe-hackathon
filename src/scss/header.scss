@@ -1,7 +1,12 @@
 @import "./_mixins";
 .logo {
-  width: 50px;
+  max-width: 50px;
+  width: 100%;
   height: 50px;
+  @include if_mobile() {
+    max-width: 40px;
+    height: 40px;
+  }
 }
 
 .nav {
@@ -10,15 +15,20 @@
   align-items: center;
   background-color: #26413c;
   width: 100%;
-  height: 80px;
+  height: auto;
 }
 
 .site-title {
   display: flex;
-  padding-left: 100px;
+  margin: 0rem 3rem 0rem 1rem;
   align-items: flex-start;
   color: white;
   font-family: "Inter", sans-serif;
+  text-decoration: none;
+  font-size: 1rem;
+  @include if_mobile() {
+    font-size: 0.8rem;
+  }
 }
 
 .nav-list {
@@ -40,13 +50,11 @@ ul {
   text-decoration: none;
   color: white;
   font-family: "Inter", sans-serif;
-  // margin: auto;
   border-bottom: 2px solid transparent;
   font-weight: bold;
 }
 
 .nav ul li a:hover {
-  // font-weight: bold;
   border-bottom: 2px solid coral;
   text-align: center;
 }
@@ -57,4 +65,57 @@ ul {
 
 #root {
   position: relative;
+}
+
+.toggleBtn {
+  display: none;
+  flex-direction: column;
+  justify-content: right;
+  width: 3rem;
+  height: 1rem;
+}
+
+.toggleBtn .bar {
+  @include if_mobile() {
+    height: 2 px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+  }
+}
+
+$breakpoint: 806px;
+@media (max-width: $breakpoint) {
+  .toggleBtn {
+    display: flex;
+  }
+  .nav-list {
+    display: none;
+    width: 100%;
+  }
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-list ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-list li {
+    text-align: center;
+  }
+
+  .nav-list li a {
+    padding: 0.5rem 1rem;
+  }
+
+  .nav-list.active {
+    display: flex;
+  }
+}
+
+.icon {
+  width: 30%;
+  height: auto;
 }
