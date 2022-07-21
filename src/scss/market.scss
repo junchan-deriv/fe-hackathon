@@ -6,13 +6,50 @@
 .hightlight {
   display: flex;
   justify-content: space-around;
-  margin: 2%;
+  margin: 50px 0px 50px 0px;
   width: 100%;
   height: auto;
   background-color: #e9e9e9;
 }
 
 .hightlight-container {
-  margin: 2%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: 0px 50px 0px 50px;
+}
+
+.coinList-item {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
   padding: 1rem;
+}
+.card img {
+  width: 70px;
+  height: 70px;
+  margin: 15px;
+}
+
+.title {
+  color: grey;
+  margin: 5px;
+}
+
+.coin-symbol {
+  padding: 0rem 3rem 0rem 0rem;
+  font-size: 20px;
+}
+.coin-price {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.chart button {
+  width: 200px;
+  height: 50px;
+  margin: 2rem;
+  float: right;
 }
