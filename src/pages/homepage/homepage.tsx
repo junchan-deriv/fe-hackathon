@@ -1,6 +1,4 @@
 import React from "react";
-import Footer from "../footer/footer";
-import Header from "../header/header";
 import "./homepage.css";
 import pic from "./Assets/TA Traders.png";
 import foto from "./Assets/Crypto.png";

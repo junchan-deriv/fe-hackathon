@@ -26,7 +26,7 @@ export default function TopHighlight() {
     };
 
     getCoinData();
-  }, []);
+  }, [coinList]);
 
   const renderCoin = () => {
     if (loading) {

@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  CoingeckoChartDataPoller,
-  coingecko_get_coin_current_data,
-} from "../api/coingecko";
+import { coingecko_get_coin_current_data } from "../api/coingecko";
 import {
   coingecko_coin_kv,
   coingecko_market_data,

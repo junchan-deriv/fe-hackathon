@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext } from "react";
 
 export const CoinListContext = createContext([
   "bitcoin",
@@ -8,11 +8,5 @@ export const CoinListContext = createContext([
 ]);
 
 export const CoinListContextProvider = (props) => {
-  const [coinList, setCoinList] = useState();
-
-  return (
-    <CoinListContext.Provider value={{ coinList }}>
-      {props.children}
-    </CoinListContext.Provider>
-  );
+  return <CoinListContext.Provider>{props.children}</CoinListContext.Provider>;
 };

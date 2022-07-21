@@ -7,23 +7,12 @@ import About from "./pages/about/about";
 import Market from "./pages/market/market";
 import Home from "./pages/homepage/homepage";
 import Footer from "./pages/footer/footer";
+import ChartPage from "./pages/chart/ChartPage";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
-// let page = <></>;
-// switch (document.location.pathname) {
-//   case "/":
-//     page = <Home />;
-//     break;
 
-//   case "/market":
-//     page = <Market />;
-//     break;
-//   case "/about":
-//     page = <About />;
-//     break;
-// }
 root.render(
   <BrowserRouter>
     <Routes>
@@ -31,6 +20,7 @@ root.render(
         <Route path="" element={<Home />} />
         <Route path="market" element={<Market />} />
         <Route path="about" element={<About />} />
+        <Route path="chart/:coin/:vs" element={<ChartPage />} />
       </Route>
     </Routes>
   </BrowserRouter>
