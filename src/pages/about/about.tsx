@@ -19,15 +19,12 @@ export default function About() {
         <p className="trade-now-history">
           TradeNow makes it accessible and easy to learn crypto. We’re on a
           mission to spread the word about this opportunity to create more
-          financial growth for Malaysians.
-          <br />
-          <br /> We are regulated by the Securities Commission Malaysia and
-          comply with all local rules. We’re here for all your questions,
-          whether you’re just exploring the idea of investing or you’re more
-          experienced. <br />
-          <br /> So far, more than 10 million people have chosen to invest in
-          crypto with TradeNow. We’re in it for the long term and we invite you
-          on this journey with us.{" "}
+          financial growth for Malaysians. We are regulated by the Securities
+          Commission Malaysia and comply with all local rules. We’re here for
+          all your questions, whether you’re just exploring the idea of
+          investing or you’re more experienced. So far, more than 10 million
+          people have chosen to invest in crypto with TradeNow. We’re in it for
+          the long term and we invite you on this journey with us.{" "}
         </p>
       </div>
       <div className="team-Trade-Now">
