@@ -3,7 +3,6 @@ import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import "../../scss/header.scss";
 
 function Header() {
-  console.log("this is nav");
   return (
     /* Navigation Menu */
     <>

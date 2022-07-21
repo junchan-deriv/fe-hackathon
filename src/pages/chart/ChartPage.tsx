@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { CoingeckoChartDataPoller } from "../../api/coingecko";
 import ChartComponent from "../../components/ChartComponent";
-
+import "../../scss/chart.scss";
 export default function ChartPage() {
   //get the param
   const { coin, vs } = useParams();
@@ -25,7 +25,7 @@ export default function ChartPage() {
     return () => instance.stop();
   }, [coin, vs]);
   return poller ? (
-    <div style={{ width: "50%", height: "300px" }}>
+    <div className="chart">
       <ChartComponent source={poller} />
     </div>
   ) : (

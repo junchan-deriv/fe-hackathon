@@ -1,4 +1,5 @@
 import React from "react";
+import "../scss/drop-down-list.scss";
 
 type DropDownListProps<ElementType> = {
   /**

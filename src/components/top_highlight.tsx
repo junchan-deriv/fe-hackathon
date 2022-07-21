@@ -48,11 +48,6 @@ export default function TopHighlight() {
       <div className="description">
         <div className="card">{renderCoin()}</div>
       </div>
-      <div className="chart">
-        <Link to="/chart">
-          <button>View Chart</button>
-        </Link>
-      </div>
     </div>
   );
 }
