@@ -2,7 +2,7 @@ import React from "react";
 import "../scss/market.scss";
 import { Link } from "react-router-dom";
 
-const Coin = ({ coin }) => {
+const Coin = ({ coin }: any) => {
   return (
     <Link
       to={`/chart/${coin.id}/myr`}

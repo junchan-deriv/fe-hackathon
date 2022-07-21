@@ -1,5 +1,5 @@
 import React from "react";
-import "./homepage.css";
+import "../../scss/homepage.scss";
 import pic from "./Assets/TA Traders.png";
 import foto from "./Assets/Crypto.png";
 
