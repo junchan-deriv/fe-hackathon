@@ -6,7 +6,7 @@
 .hightlight {
   display: flex;
   justify-content: space-around;
-  margin: 50px 0px 50px 0px;
+  margin: 10% 0% 10% 0%;
   width: 100%;
   height: auto;
   background-color: #e9e9e9;
@@ -18,7 +18,7 @@
 }
 
 .container {
-  margin: 0px 50px 0px 50px;
+  margin: 0px 10% 0px 10%;
 }
 
 .coinList-item {
@@ -34,9 +34,9 @@
   z-index: 2;
 }
 .card img {
-  width: 70px;
-  height: 70px;
-  margin: 15px;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 5%;
 }
 
 .title {
@@ -46,10 +46,10 @@
 
 .coin-symbol {
   padding: 0rem 3rem 0rem 0rem;
-  font-size: 20px;
+  font-size: 0.75rem;
 }
 .coin-price {
-  font-size: 20px;
+  font-size: 0.5rem;
   font-weight: bold;
 }
 

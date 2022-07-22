@@ -9,14 +9,15 @@ export default function About() {
   return (
     <div className="body">
       <div className="trade-now-main">
-        <h1 className="h1-low-opacity">About</h1>
-        <h1 className="h1-about-us">About Trade Now</h1>
-        {/* <p className="p-about-us">The best platform for cryptocurrency</p> */}
-        <img
-          src={logo}
-          alt="Trade Now logo"
-          className="trade-now-logo mask-logo"
-        />
+        <div className="left-container">
+          <h1 className="h1-low-opacity">About</h1>
+          <h1 className="h1-about-us">About Trade Now</h1>
+          {/* <p className="p-about-us">The best platform for cryptocurrency</p> */}
+        </div>
+
+        <div className="right-side-container">
+          <img src={logo} alt="Trade Now logo" className="trade-now-logo" />
+        </div>
       </div>
       <div className="trade-now-history">
         <p className="trade-now-history">

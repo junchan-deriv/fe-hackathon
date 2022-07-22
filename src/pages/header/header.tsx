@@ -3,6 +3,7 @@ import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import "../../scss/header.scss";
 
 function Header() {
+  const [open, setOpen] = React.useState(false);
   return (
     /* Navigation Menu */
     <>
@@ -15,7 +16,17 @@ function Header() {
           />
           <h4>TradeNow</h4>
         </Link>
-        <div className="nav-list">
+        <button
+          className="toggleBtn"
+          onClick={() => {
+            setOpen(!open);
+          }}
+        >
+          <img src="/image/menu-burger.png" alt="" className="icon" />
+          {/* display this when page size is smaller than 400px */}
+        </button>
+
+        <div className={open ? "nav-list" : "nav-menu"}>
           {/* Links for nav */}
           <ul>
             <NavLinks to="/">Home</NavLinks>
