@@ -85,7 +85,10 @@ export function coingecko_get_market_data(
   vs: string
 ): Promise<coingecko_market_data_single_pair[]> {
   return fetchJson<coingecko_market_data_single_pair[]>(
-    `${baseURL}/coins/markets?ids=${coin.join(",")}&vs_currency=${vs}`
+    `${baseURL}/coins/markets?ids=${coin.join(",")}&vs_currency=${vs}`,
+    {
+      cache: "no-store",
+    }
   );
 }
 

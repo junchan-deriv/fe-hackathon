@@ -1,8 +1,13 @@
 import React from "react";
 import "../scss/market.scss";
 import { Link } from "react-router-dom";
+import { coingecko_market_data_single_pair } from "../definitions/coingecko";
 
-const Coin = ({ coin }: any) => {
+type CoinProps = {
+  coin: coingecko_market_data_single_pair;
+};
+
+const Coin = ({ coin }: CoinProps) => {
   return (
     <Link
       to={`/chart/${coin.id}/myr`}

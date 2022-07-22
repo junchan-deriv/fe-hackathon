@@ -1,40 +1,26 @@
-import React, { useContext, useEffect, useState } from "react";
-import coinGecko from "../api/coinGecko";
+import React, { useContext } from "react";
 import Coin from "./Coin";
 import { CoinListContext } from "./coinList";
 import "../scss/market.scss";
+import { coingecko_market_data_single_pair } from "../definitions/coingecko";
+import { coingecko_get_market_data } from "../api/coingecko";
+import { useInterval } from "../utils/reactHooks";
 
 export default function TopHighlight() {
-  const [coin, setCoin] = useState<any>([]);
   const coinList = useContext(CoinListContext);
-  const [loading, setLoading] = useState(false);
-  console.log(coinList);
-  useEffect(() => {
-    // get the coin data
-    const getCoinData = async () => {
-      setLoading(true);
-      const result = await coinGecko.get("/coins/markets/", {
-        params: {
-          vs_currency: "myr",
-          ids: coinList.join(","),
-        },
-      });
-      console.log(result.data);
-      setCoin(result.data);
-      setLoading(false);
-    };
-
-    getCoinData();
-  }, [coinList]);
+  const coin = useInterval<coingecko_market_data_single_pair[]>(
+    coingecko_get_market_data.bind(null, coinList, "myr"),
+    15000
+  );
 
   const renderCoin = () => {
-    if (loading) {
+    if (!coin) {
       return <div>Loading.....</div>;
     }
 
     return (
       <div className="coin-list">
-        {coin.map((coin: any) => {
+        {coin.map((coin: coingecko_market_data_single_pair) => {
           return <Coin key={coin.id} coin={coin} />;
         })}
       </div>
