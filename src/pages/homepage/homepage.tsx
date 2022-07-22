@@ -2,8 +2,10 @@ import React from "react";
 import "../../scss/homepage.scss";
 import pic from "./Assets/TA Traders.png";
 import foto from "./Assets/Crypto.png";
+import { usePageTitle } from "../../utils/reactHooks";
 
 export default function Home() {
+  usePageTitle("TradeNow");
   return (
     <>
       <div className="flex-container">

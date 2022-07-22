@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { CoingeckoChartDataPoller } from "../../api/coingecko";
 import ChartComponent from "../../components/ChartComponent";
 import "../../scss/chart.scss";
+import { usePageTitle } from "../../utils/reactHooks";
 export default function ChartPage() {
   //get the param
   const { coin, vs } = useParams();
@@ -10,6 +11,7 @@ export default function ChartPage() {
   const [poller, setPoller] = React.useState<
     CoingeckoChartDataPoller | undefined
   >();
+  usePageTitle(`Chart ${coin} vs ${vs?.toUpperCase()}`);
   React.useEffect(() => {
     if (!coin || !vs) {
       return;

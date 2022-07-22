@@ -4,9 +4,11 @@ import DropDownList from "../../components/drop_down_list";
 import MarketTable from "../../components/market_table";
 import TopHighlight from "../../components/top_highlight";
 import "../../scss/market.scss";
+import { usePageTitle } from "../../utils/reactHooks";
 
 export default function Market() {
   const [crypto, setCrypto] = React.useState<string>("bitcoin");
+  usePageTitle("Markets");
   return (
     <>
       <div className="container">

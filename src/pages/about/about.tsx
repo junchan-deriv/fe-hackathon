@@ -4,8 +4,10 @@ import logo from "./Assets/TradeNow.png";
 import vyi from "./Assets/Vern Yi.jpg";
 import jjj from "./Assets/JJ.jpg";
 import afq from "./Assets/afiq.png";
+import { usePageTitle } from "../../utils/reactHooks";
 
 export default function About() {
+  usePageTitle("About Us");
   return (
     <div className="body">
       <div className="trade-now-main">
