@@ -73,8 +73,6 @@ export default function ChartComponent({
       if (!labels || !datas) {
         return;
       }
-      console.log("DATA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-      console.log("");
       //push the new stuffs into it
       newSeg.forEach((entry) => {
         //time
@@ -98,7 +96,6 @@ export default function ChartComponent({
       //init
       initData();
     }
-    //then the A**hole listeners
     return () => {
       source.onLoad = undefined;
       source.onNewData = undefined;
@@ -120,7 +117,6 @@ export default function ChartComponent({
       },
     },
   };
-  //lets construct our data here dude
   const data = {
     labels,
     datasets: [
