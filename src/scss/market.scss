@@ -1,12 +1,13 @@
 .table-container {
   justify-content: center;
   display: flex;
+  overflow-y: auto;
 }
 
 .hightlight {
   display: flex;
   justify-content: space-around;
-  margin: 10% 0% 10% 0%;
+  margin: 3% 0% 3% 0%;
   width: 100%;
   height: auto;
   background-color: #e9e9e9;
@@ -34,8 +35,8 @@
   z-index: 2;
 }
 .card img {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.75rem;
+  height: 1.75rem;
   margin: 5%;
 }
 
@@ -46,10 +47,10 @@
 
 .coin-symbol {
   padding: 0rem 3rem 0rem 0rem;
-  font-size: 0.75rem;
+  font-size: 1.5rem;
 }
 .coin-price {
-  font-size: 0.5rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 
