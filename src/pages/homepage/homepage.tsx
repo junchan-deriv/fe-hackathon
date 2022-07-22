@@ -20,9 +20,7 @@ export default function Home() {
             <br />
             exchange
           </h1>
-          <a className="button-68" href="#" role="button">
-            Get Now
-          </a>
+          <button className="button-68">Get Now</button>
           <p className="homepage-description">
             Trade with over 15 different crytocurrency exchange
             <br /> including Bitcoin, Ethereum and BNB pairs
