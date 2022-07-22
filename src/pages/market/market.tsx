@@ -24,7 +24,7 @@ export default function Market() {
         </div>
         {/* here is the crypto data shown in table form */}
         <div className="table-container">
-          <div>
+          <div style={{ overflowY: "auto" }}>
             <div className="select-drop-down">
               <DropDownList
                 list={React.useContext(CoinListContext)}
