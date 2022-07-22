@@ -52,3 +52,13 @@ export function useLoader<T>(
   }, [setValue, ...reps]); // eslint-disable-line react-hooks/exhaustive-deps
   return value;
 }
+
+/**
+ * Simple hooks the set page title
+ * @param title the page title to set
+ */
+export function usePageTitle(title: string) {
+  React.useEffect(() => {
+    document.title = title;
+  });
+}
