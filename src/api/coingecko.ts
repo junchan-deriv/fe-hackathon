@@ -2,6 +2,7 @@ import {
   coingecko_chart_data,
   coingecko_coin_entries,
   coingecko_market_data,
+  coingecko_market_data_single_pair,
   coingecko_price_chart_data,
   coingecko_vs_currencies,
 } from "../definitions/coingecko";
@@ -56,7 +57,7 @@ export function coingecko_get_coin_current_data(
 }
 
 /**
- *
+ * Get the chart data
  * @param coin the coin to served as base currency
  * @param vs the currency to be forked from
  * @returns the chart data
@@ -70,6 +71,21 @@ export function coingecko_get_chart_data(
     {
       cache: "no-store",
     }
+  );
+}
+
+/**
+ * Return the market data of the coins against one currency
+ * @param coin array holding the coins
+ * @param vs the currency to compare against
+ * @returns the array of the market data
+ */
+export function coingecko_get_market_data(
+  coin: string[],
+  vs: string
+): Promise<coingecko_market_data_single_pair[]> {
+  return fetchJson<coingecko_market_data_single_pair[]>(
+    `${baseURL}/coins/markets?ids=${coin.join(",")}&vs_currency=${vs}`
   );
 }
 

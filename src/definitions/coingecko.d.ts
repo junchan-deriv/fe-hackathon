@@ -79,6 +79,20 @@ export declare type coingecko_market_data = coingecko_coin_entry & {
 };
 
 /**
+ * Market data returned by /coins/markets/
+ */
+export declare type coingecko_market_data_single_pair = coingecko_coin_entry & {
+  /**
+   * Current price
+   */
+  current_price: number;
+  /**
+   * Image
+   */
+  image: string;
+};
+
+/**
  * [time,val]
  */
 export declare type coingecko_chart_data = number[][];

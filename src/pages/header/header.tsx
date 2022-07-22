@@ -26,7 +26,7 @@ function Header() {
           {/* display this when page size is smaller than 400px */}
         </button>
 
-        <div className={open ? "nav-list" : "nav-menu"}>
+        <div className={!open ? "nav-list" : "nav-menu"}>
           {/* Links for nav */}
           <ul>
             <NavLinks to="/">Home</NavLinks>

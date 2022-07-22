@@ -19,7 +19,7 @@
 }
 
 .site-title {
-  display: flex;
+  display: inline-flex;
   margin: 0rem 3rem 0rem 1rem;
   align-items: flex-start;
   color: white;
@@ -40,13 +40,21 @@
 
 ul {
   display: flex;
-  padding: 0;
+  @include if_mobile() {
+    display: block;
+  }
+  padding: 0 1rem 0 0;
   margin: 0;
   gap: 5rem;
   list-style: none;
 }
 
 .nav ul li a {
+  @include if_mobile() {
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
   text-decoration: none;
   color: white;
   font-family: "Inter", sans-serif;
@@ -87,15 +95,16 @@ ul {
 $breakpoint: 806px;
 @media (max-width: $breakpoint) {
   .toggleBtn {
-    display: flex;
+    display: inline;
+    position: absolute;
+    right: 0;
   }
   .nav-list {
     display: none;
     width: 100%;
   }
   .nav {
-    flex-direction: column;
-    align-items: flex-start;
+    display: block;
   }
   .nav-list ul {
     flex-direction: column;
