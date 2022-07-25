@@ -23,7 +23,7 @@ export default function MarketTable({ coin, vs_currencies }: MarketTableProps) {
   //page number
   const [page, setPage] = React.useState<number>(1);
   //get the data
-  const currentMarketData = useInterval<coingecko_market_data_render>(
+  const current_market_data = useInterval<coingecko_market_data_render>(
     () => coingecko_get_coin_current_data(coin),
     30000,
     [coin, vs_currencies],
@@ -53,7 +53,7 @@ export default function MarketTable({ coin, vs_currencies }: MarketTableProps) {
     }
   );
   //check weather the data is out of sync
-  if (!currentMarketData || currentMarketData?.id !== coin) {
+  if (!current_market_data || current_market_data?.id !== coin) {
     //this test is required because the changes in prop sometimes
     //race condition where confuses the React
     return <>Loading</>;
@@ -61,12 +61,12 @@ export default function MarketTable({ coin, vs_currencies }: MarketTableProps) {
   //get the keys if there is no there
   vs_currencies =
     vs_currencies ??
-    (currentMarketData
-      ? Object.keys(currentMarketData.market_data.current_price)
+    (current_market_data
+      ? Object.keys(current_market_data.market_data.current_price)
       : undefined);
   // declare the start and end of table row range
-  const startRange = (page - 1) * 10;
-  const endRange = startRange + 10;
+  const start_range = (page - 1) * 10;
+  const end_range = start_range + 10;
   return (
     <div>
       <table className="market_table">
@@ -81,23 +81,23 @@ export default function MarketTable({ coin, vs_currencies }: MarketTableProps) {
         <tbody>
           {vs_currencies &&
             vs_currencies
-              .slice(startRange, endRange) //slice the table
+              .slice(start_range, end_range) //slice the table
               .map(
                 (cur) =>
-                  cur !== currentMarketData.symbol && (
+                  cur !== current_market_data.symbol && (
                     <TableRow
                       key={cur}
                       coin={coin}
-                      icon={currentMarketData.image.small}
+                      icon={current_market_data.image.small}
                       vs={cur}
                       price={
-                        currentMarketData.market_data.current_price[
+                        current_market_data.market_data.current_price[
                           cur
                         ] as number
                       }
-                      diff={(currentMarketData?.diff ?? {})[cur]}
+                      diff={(current_market_data?.diff ?? {})[cur]}
                       changes={
-                        currentMarketData.market_data
+                        current_market_data.market_data
                           .price_change_percentage_24h_in_currency[cur]
                       }
                     />
