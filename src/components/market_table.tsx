@@ -38,7 +38,7 @@ export default function MarketTable({ coin, vs_currencies }: MarketTableProps) {
       const currencies = Object.keys(updated.market_data.current_price).filter(
         process
       );
-      if (old) {
+      if (old && old.id === updated.id) {
         //if the old data here perform the diff here
         currencies.forEach((k) => {
           updated.diff = updated.diff ?? {};
@@ -52,6 +52,12 @@ export default function MarketTable({ coin, vs_currencies }: MarketTableProps) {
       return updated;
     }
   );
+  //check weather the data is out of sync
+  if (!currentMarketData || currentMarketData?.id !== coin) {
+    //this test is required because the changes in prop sometimes
+    //race condition where confuses the React
+    return <>Loading</>;
+  }
   //get the keys if there is no there
   vs_currencies =
     vs_currencies ??
@@ -61,9 +67,7 @@ export default function MarketTable({ coin, vs_currencies }: MarketTableProps) {
   // declare the start and end of table row range
   const startRange = (page - 1) * 10;
   const endRange = startRange + 10;
-  return !currentMarketData ? (
-    <>Loading</>
-  ) : (
+  return (
     <div>
       <table className="market_table">
         <thead>
